@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>True</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.6" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CommandVisuals\ChangeWallpaperLocalVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CommandVisuals\ShutdownPCVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CommandVisuals\RestartPCVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CommandVisuals\DelayVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CommandVisuals\TakeScreenshotVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CommandVisuals\StartWindowsProcessVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CommandVisuals\StartWebProcessVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CommandVisuals\SendNotificationToastVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CommandVisuals\SendNotificationEmailVisual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
