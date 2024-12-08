@@ -1,4 +1,0 @@
-@startuml
-class ChangeWallpaperWebVisual <<partial>> {
-}
-@enduml

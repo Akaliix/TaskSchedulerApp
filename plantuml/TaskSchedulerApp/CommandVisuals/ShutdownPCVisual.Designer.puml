@@ -1,4 +1,0 @@
-@startuml
-class ShutdownPCVisual <<partial>> {
-}
-@enduml

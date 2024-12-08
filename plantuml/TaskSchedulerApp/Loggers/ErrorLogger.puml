@@ -1,6 +1,0 @@
-@startuml
-class ErrorLogger {
-    + ErrorLogger(level:int)
-}
-AbstractLogger <|-- ErrorLogger
-@enduml

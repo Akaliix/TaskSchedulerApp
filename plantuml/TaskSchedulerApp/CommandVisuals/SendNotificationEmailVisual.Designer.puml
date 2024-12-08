@@ -1,4 +1,0 @@
-@startuml
-class SendNotificationEmailVisual <<partial>> {
-}
-@enduml

@@ -1,8 +1,0 @@
-@startuml
-class DelayCommand {
-    + _seconds : float
-    + DelayCommand(seconds:float)
-    + <<async>> ExecuteAsync() : Task
-}
-ITaskCommand <|-- DelayCommand
-@enduml

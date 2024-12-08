@@ -1,9 +1,0 @@
-@startuml
-abstract class AbstractLogger {
-    + {static} INFO : int = 1
-    + {static} SUCCESS : int = 2
-    + {static} ERROR : int = 3
-    + SetNextLogger(nextLogger:AbstractLogger) : void
-    + LogMessage(level:int, message:String) : void
-}
-@enduml

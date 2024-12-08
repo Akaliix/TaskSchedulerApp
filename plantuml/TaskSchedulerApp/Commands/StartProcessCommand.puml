@@ -1,7 +1,0 @@
-@startuml
-class StartProcessCommand {
-    + StartProcessCommand(process:BaseProcess)
-    + <<async>> ExecuteAsync() : Task
-}
-ITaskCommand <|-- StartProcessCommand
-@enduml

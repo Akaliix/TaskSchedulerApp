@@ -1,8 +1,0 @@
-@startuml
-class DelayVisual <<partial>> {
-    + DelayVisual()
-    + GetCommand() : ITaskCommand
-}
-UserControl <|-- DelayVisual
-ICommandVisual <|-- DelayVisual
-@enduml

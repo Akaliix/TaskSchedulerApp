@@ -1,8 +1,0 @@
-@startuml
-class TaskHandler {
-    + _nextHandler : TaskHandler?
-    + TaskHandler(taskCommand:ITaskCommand)
-    + SetNext(nextHandler:TaskHandler) : void
-    + <<async>> HandleAsync() : Task
-}
-@enduml

@@ -1,6 +1,0 @@
-@startuml
-class ShutdownPCCommand {
-    + <<async>> ExecuteAsync() : Task
-}
-ITaskCommand <|-- ShutdownPCCommand
-@enduml

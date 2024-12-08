@@ -1,6 +1,0 @@
-@startuml
-class SuccessLogger {
-    + SuccessLogger(level:int)
-}
-AbstractLogger <|-- SuccessLogger
-@enduml

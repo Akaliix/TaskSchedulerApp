@@ -1,4 +1,0 @@
-@startuml
-class RestartPCVisual <<partial>> {
-}
-@enduml

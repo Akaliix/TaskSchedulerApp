@@ -1,8 +1,0 @@
-@startuml
-class SendNotificationToastVisual <<partial>> {
-    + SendNotificationToastVisual()
-    + GetCommand() : ITaskCommand
-}
-UserControl <|-- SendNotificationToastVisual
-ICommandVisual <|-- SendNotificationToastVisual
-@enduml

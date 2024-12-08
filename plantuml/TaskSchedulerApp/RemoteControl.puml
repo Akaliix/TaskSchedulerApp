@@ -1,7 +1,0 @@
-@startuml
-class RemoteControl {
-    + setCommand(command:ITaskCommand) : void
-    + <<async>> pressButton() : Task
-}
-RemoteControl --> "Singleton" RemoteControl
-@enduml

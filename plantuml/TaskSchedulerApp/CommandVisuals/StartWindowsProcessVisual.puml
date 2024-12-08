@@ -1,8 +1,0 @@
-@startuml
-class StartWindowsProcessVisual <<partial>> {
-    + StartWindowsProcessVisual()
-    + GetCommand() : ITaskCommand
-}
-UserControl <|-- StartWindowsProcessVisual
-ICommandVisual <|-- StartWindowsProcessVisual
-@enduml

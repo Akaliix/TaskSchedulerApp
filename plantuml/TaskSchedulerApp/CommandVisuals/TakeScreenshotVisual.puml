@@ -1,8 +1,0 @@
-@startuml
-class TakeScreenshotVisual <<partial>> {
-    + TakeScreenshotVisual()
-    + GetCommand() : ITaskCommand
-}
-UserControl <|-- TakeScreenshotVisual
-ICommandVisual <|-- TakeScreenshotVisual
-@enduml

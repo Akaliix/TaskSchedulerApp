@@ -1,9 +1,0 @@
-@startuml
-class WebImage {
-    + WebImage(imagePath:string)
-    + <<override>> SaveImage(pathToSave:string) : void
-    + <<override>> VerifyImagePath() : bool
-    + <<override>> <<async>> LoadImage() : Task
-}
-BaseImage <|-- WebImage
-@enduml

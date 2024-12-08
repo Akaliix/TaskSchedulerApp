@@ -1,9 +1,0 @@
-@startuml
-class LocalImage {
-    + LocalImage(imagePath:string)
-    + <<override>> <<async>> SaveImage(pathToSave:string) : void
-    + <<override>> VerifyImagePath() : bool
-    + <<override>> <<async>> LoadImage() : Task
-}
-BaseImage <|-- LocalImage
-@enduml

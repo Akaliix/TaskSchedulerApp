@@ -1,8 +1,0 @@
-@startuml
-class WindowsProcess {
-    + Path : string <<get>> <<set>>
-    + WindowsProcess(path:string)
-    + <<override>> Start() : void
-}
-BaseProcess <|-- WindowsProcess
-@enduml

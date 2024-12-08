@@ -1,8 +1,0 @@
-@startuml
-class WebProcess {
-    + Url : string <<get>> <<set>>
-    + WebProcess(Url:string)
-    + <<override>> Start() : void
-}
-BaseProcess <|-- WebProcess
-@enduml

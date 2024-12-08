@@ -1,6 +1,0 @@
-@startuml
-class RestartPCCommand {
-    + <<async>> ExecuteAsync() : Task
-}
-ITaskCommand <|-- RestartPCCommand
-@enduml
