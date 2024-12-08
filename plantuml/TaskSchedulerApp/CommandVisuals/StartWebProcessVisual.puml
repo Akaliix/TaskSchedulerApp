@@ -1,0 +1,8 @@
+@startuml
+class StartWebProcessVisual <<partial>> {
+    + StartWebProcessVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- StartWebProcessVisual
+ICommandVisual <|-- StartWebProcessVisual
+@enduml

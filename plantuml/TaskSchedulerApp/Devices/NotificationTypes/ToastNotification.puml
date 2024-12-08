@@ -1,0 +1,7 @@
+@startuml
+class ToastNotification {
+    + ToastNotification(title:string, message:string)
+    + <<override>> <<async>> Send() : Task<bool>
+}
+BaseNotification <|-- ToastNotification
+@enduml

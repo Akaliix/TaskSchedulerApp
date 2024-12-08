@@ -1,0 +1,8 @@
+@startuml
+abstract class BaseImage {
+    + BaseImage(imagePath:string)
+    {abstract} + LoadImage() : Task
+    {abstract} + SaveImage(pathToSave:string) : void
+    {abstract} + VerifyImagePath() : bool
+}
+@enduml

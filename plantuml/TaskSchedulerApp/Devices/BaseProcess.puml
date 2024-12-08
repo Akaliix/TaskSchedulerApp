@@ -1,0 +1,7 @@
+@startuml
+abstract class BaseProcess {
+    + Name : string <<get>> <<set>>
+    + BaseProcess(name:string)
+    + {abstract} Start() : void
+}
+@enduml

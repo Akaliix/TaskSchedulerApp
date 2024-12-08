@@ -1,0 +1,258 @@
+@startuml
+abstract class AbstractLogger {
+    + {static} INFO : int = 1
+    + {static} SUCCESS : int = 2
+    + {static} ERROR : int = 3
+    + SetNextLogger(nextLogger:AbstractLogger) : void
+    + LogMessage(level:int, message:String) : void
+}
+class BasicConsole <<static>> {
+    + {static} isDirty : bool = false
+    + {static} WriteLine(message:string, color:Color) : void
+}
+class "List`1"<T> {
+}
+BasicConsole --> "logger" AbstractLogger
+BasicConsole o-> "lines<LineStruct>" "List`1"
+class Form1 <<partial>> {
+    + {static} singleton : Form1?
+    + Form1()
+    + AddTaskScheduler(taskScheduler:TaskScheduler) : void
+}
+Form <|-- Form1
+class Form1 <<partial>> {
+}
+interface ITaskCommand {
+    + ExecuteAsync() : Task
+}
+class Program <<static>> {
+}
+class RemoteControl {
+    + setCommand(command:ITaskCommand) : void
+    + <<async>> pressButton() : Task
+}
+RemoteControl --> "Singleton" RemoteControl
+class ScheduleEditor <<partial>> {
+    + ScheduleEditor()
+}
+Form <|-- ScheduleEditor
+class ScheduleEditor <<partial>> {
+}
+class TaskSchedulerSettings <<static>> {
+    + {static} TaskInterval : int <<get>> <<set>> = 1000
+    + {static} EmailServer : string <<get>> <<set>> = "smtp-relay.brevo.com"
+    + {static} EmailServerPort : int <<get>> <<set>> = 587
+    + {static} EmailServerUsername : string <<get>> <<set>> = "814bb3001@smtp-brevo.com"
+    + {static} EmailServerPassword : string <<get>> <<set>> = "kY8wAcCEa6qbyg5x"
+    + {static} EmailFrom : string <<get>> <<set>> = "mehmetexpress3@gmail.com"
+}
+class TaskHandler {
+    + _nextHandler : TaskHandler?
+    + TaskHandler(taskCommand:ITaskCommand)
+    + SetNext(nextHandler:TaskHandler) : void
+    + <<async>> HandleAsync() : Task
+}
+class TaskScheduler {
+    + _hour : int
+    + _minute : int
+    + TaskScheduler(name:string, hour:int, minute:int)
+    + AddTask(handler:TaskHandler) : void
+    + <<async>> ExecuteAllAsync() : Task
+    + <<override>> ToString() : string
+}
+class ChangeWallpaperCommand {
+    + ChangeWallpaperCommand(baseImage:BaseImage, style:Wallpaper.Style)
+    + <<async>> ExecuteAsync() : Task
+}
+class Wallpaper <<static>> {
+    + {static} Set(path:string, style:Style) : bool
+}
+enum Style {
+    Fill,
+    Fit,
+    Span,
+    Stretch,
+    Tile,
+    Center,
+}
+ITaskCommand <|-- ChangeWallpaperCommand
+ChangeWallpaperCommand --> "baseImage" BaseImage
+Wallpaper +-- Style
+class DelayCommand {
+    + _seconds : float
+    + DelayCommand(seconds:float)
+    + <<async>> ExecuteAsync() : Task
+}
+ITaskCommand <|-- DelayCommand
+class RestartPCCommand {
+    + <<async>> ExecuteAsync() : Task
+}
+ITaskCommand <|-- RestartPCCommand
+class SendNotificationCommand {
+    + SendNotificationCommand(notification:BaseNotification)
+    + <<async>> ExecuteAsync() : Task
+}
+ITaskCommand <|-- SendNotificationCommand
+SendNotificationCommand --> "_notification" BaseNotification
+class ShutdownPCCommand {
+    + <<async>> ExecuteAsync() : Task
+}
+ITaskCommand <|-- ShutdownPCCommand
+class StartProcessCommand {
+    + StartProcessCommand(process:BaseProcess)
+    + <<async>> ExecuteAsync() : Task
+}
+ITaskCommand <|-- StartProcessCommand
+class TakeScreenShotCommand {
+    + FileName : string <<get>> <<set>>
+    + TakeScreenShotCommand(fileName:string)
+    + <<async>> ExecuteAsync() : Task
+}
+ITaskCommand <|-- TakeScreenShotCommand
+TakeScreenShotCommand --> "ScreenshotRect" Rectangle
+class ChangeWallpaperLocalVisual <<partial>> {
+    + ChangeWallpaperLocalVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- ChangeWallpaperLocalVisual
+ICommandVisual <|-- ChangeWallpaperLocalVisual
+class ChangeWallpaperLocalVisual <<partial>> {
+}
+class ChangeWallpaperWebVisual <<partial>> {
+    + ChangeWallpaperWebVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- ChangeWallpaperWebVisual
+ICommandVisual <|-- ChangeWallpaperWebVisual
+class ChangeWallpaperWebVisual <<partial>> {
+}
+class DelayVisual <<partial>> {
+    + DelayVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- DelayVisual
+ICommandVisual <|-- DelayVisual
+class DelayVisual <<partial>> {
+}
+interface ICommandVisual {
+}
+class RestartPCVisual <<partial>> {
+    + RestartPCVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- RestartPCVisual
+ICommandVisual <|-- RestartPCVisual
+class RestartPCVisual <<partial>> {
+}
+class SendNotificationEmailVisual <<partial>> {
+    + SendNotificationEmailVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- SendNotificationEmailVisual
+ICommandVisual <|-- SendNotificationEmailVisual
+class SendNotificationEmailVisual <<partial>> {
+}
+class SendNotificationToastVisual <<partial>> {
+    + SendNotificationToastVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- SendNotificationToastVisual
+ICommandVisual <|-- SendNotificationToastVisual
+class SendNotificationToastVisual <<partial>> {
+}
+class ShutdownPCVisual <<partial>> {
+    + ShutdownPCVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- ShutdownPCVisual
+ICommandVisual <|-- ShutdownPCVisual
+class ShutdownPCVisual <<partial>> {
+}
+class StartWebProcessVisual <<partial>> {
+    + StartWebProcessVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- StartWebProcessVisual
+ICommandVisual <|-- StartWebProcessVisual
+class StartWebProcessVisual <<partial>> {
+}
+class StartWindowsProcessVisual <<partial>> {
+    + StartWindowsProcessVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- StartWindowsProcessVisual
+ICommandVisual <|-- StartWindowsProcessVisual
+class StartWindowsProcessVisual <<partial>> {
+}
+class TakeScreenshotVisual <<partial>> {
+    + TakeScreenshotVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- TakeScreenshotVisual
+ICommandVisual <|-- TakeScreenshotVisual
+class TakeScreenshotVisual <<partial>> {
+}
+abstract class BaseImage {
+    + BaseImage(imagePath:string)
+    {abstract} + LoadImage() : Task
+    {abstract} + SaveImage(pathToSave:string) : void
+    {abstract} + VerifyImagePath() : bool
+}
+abstract class BaseNotification {
+    + BaseNotification(message:string, title:string)
+    {abstract} + Send() : Task<bool>
+}
+abstract class BaseProcess {
+    + Name : string <<get>> <<set>>
+    + BaseProcess(name:string)
+    + {abstract} Start() : void
+}
+class ErrorLogger {
+    + ErrorLogger(level:int)
+}
+AbstractLogger <|-- ErrorLogger
+class InfoLogger {
+    + InfoLogger(level:int)
+}
+AbstractLogger <|-- InfoLogger
+class SuccessLogger {
+    + SuccessLogger(level:int)
+}
+AbstractLogger <|-- SuccessLogger
+class LocalImage {
+    + LocalImage(imagePath:string)
+    + <<override>> <<async>> SaveImage(pathToSave:string) : void
+    + <<override>> VerifyImagePath() : bool
+    + <<override>> <<async>> LoadImage() : Task
+}
+BaseImage <|-- LocalImage
+class WebImage {
+    + WebImage(imagePath:string)
+    + <<override>> SaveImage(pathToSave:string) : void
+    + <<override>> VerifyImagePath() : bool
+    + <<override>> <<async>> LoadImage() : Task
+}
+BaseImage <|-- WebImage
+class EmailNotification {
+    + EmailNotification(emailAddress:string, subject:string, message:string)
+    + <<override>> <<async>> Send() : Task<bool>
+}
+BaseNotification <|-- EmailNotification
+class ToastNotification {
+    + ToastNotification(title:string, message:string)
+    + <<override>> <<async>> Send() : Task<bool>
+}
+BaseNotification <|-- ToastNotification
+class WebProcess {
+    + Url : string <<get>> <<set>>
+    + WebProcess(Url:string)
+    + <<override>> Start() : void
+}
+BaseProcess <|-- WebProcess
+class WindowsProcess {
+    + Path : string <<get>> <<set>>
+    + WindowsProcess(path:string)
+    + <<override>> Start() : void
+}
+BaseProcess <|-- WindowsProcess
+@enduml

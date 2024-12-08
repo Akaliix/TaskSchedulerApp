@@ -1,0 +1,8 @@
+@startuml
+class ChangeWallpaperWebVisual <<partial>> {
+    + ChangeWallpaperWebVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- ChangeWallpaperWebVisual
+ICommandVisual <|-- ChangeWallpaperWebVisual
+@enduml

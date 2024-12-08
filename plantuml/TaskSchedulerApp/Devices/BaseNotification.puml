@@ -1,0 +1,6 @@
+@startuml
+abstract class BaseNotification {
+    + BaseNotification(message:string, title:string)
+    {abstract} + Send() : Task<bool>
+}
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+class EmailNotification {
+    + EmailNotification(emailAddress:string, subject:string, message:string)
+    + <<override>> <<async>> Send() : Task<bool>
+}
+BaseNotification <|-- EmailNotification
+@enduml

@@ -1,0 +1,4 @@
+@startuml
+class DelayVisual <<partial>> {
+}
+@enduml

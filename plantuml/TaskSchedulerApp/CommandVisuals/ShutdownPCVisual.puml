@@ -1,0 +1,8 @@
+@startuml
+class ShutdownPCVisual <<partial>> {
+    + ShutdownPCVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- ShutdownPCVisual
+ICommandVisual <|-- ShutdownPCVisual
+@enduml

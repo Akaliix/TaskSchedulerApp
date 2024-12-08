@@ -1,0 +1,8 @@
+@startuml
+class Form1 <<partial>> {
+    + {static} singleton : Form1?
+    + Form1()
+    + AddTaskScheduler(taskScheduler:TaskScheduler) : void
+}
+Form <|-- Form1
+@enduml

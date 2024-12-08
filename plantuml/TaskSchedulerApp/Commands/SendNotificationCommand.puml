@@ -1,0 +1,8 @@
+@startuml
+class SendNotificationCommand {
+    + SendNotificationCommand(notification:BaseNotification)
+    + <<async>> ExecuteAsync() : Task
+}
+ITaskCommand <|-- SendNotificationCommand
+SendNotificationCommand --> "_notification" BaseNotification
+@enduml

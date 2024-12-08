@@ -1,0 +1,6 @@
+@startuml
+class ScheduleEditor <<partial>> {
+    + ScheduleEditor()
+}
+Form <|-- ScheduleEditor
+@enduml

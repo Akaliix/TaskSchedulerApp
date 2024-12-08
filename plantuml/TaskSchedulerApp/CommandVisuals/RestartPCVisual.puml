@@ -1,0 +1,8 @@
+@startuml
+class RestartPCVisual <<partial>> {
+    + RestartPCVisual()
+    + GetCommand() : ITaskCommand
+}
+UserControl <|-- RestartPCVisual
+ICommandVisual <|-- RestartPCVisual
+@enduml

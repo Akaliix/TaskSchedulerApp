@@ -1,0 +1,6 @@
+@startuml
+class InfoLogger {
+    + InfoLogger(level:int)
+}
+AbstractLogger <|-- InfoLogger
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class TakeScreenShotCommand {
+    + FileName : string <<get>> <<set>>
+    + TakeScreenShotCommand(fileName:string)
+    + <<async>> ExecuteAsync() : Task
+}
+ITaskCommand <|-- TakeScreenShotCommand
+TakeScreenShotCommand --> "ScreenshotRect" Rectangle
+@enduml
